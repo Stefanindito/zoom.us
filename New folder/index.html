@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Meeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        #container1 {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+
+        }
+        .teks{
+            margin-left: 20px;
+        }
+
+        #container2 {
+            padding: 20px;
+
+        }
+        .teksbawah{
+            font-size: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #8e8f90;
+            border-radius: 50%;
+            width: 7px;
+            height: 7px;
+            margin-left: 4px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .teksbawah span{
+            font-size: 10px;
+            color: rgb(0, 119, 255);
+        }
+        #video-container {
+            max-width: 120px;
+background-color: #333;
+            border: 2px solid #333;
+        }
+        #video-element {
+            width: 120px;
+            height: 70px;
+
+
+        }
+        #camera-icon {
+            position: absolute;
+            bottom: 10px; /* Jarak dari bawah */
+            left: 10px; /* Jarak dari kiri */
+            width: 50px; /* Atur lebar sesuai kebutuhan Anda */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container1">
+        <div id="video-container">
+            <img id="camera-icon" src="camera-icon.png" alt="Kamera">
+            <video id="video-element" autoplay playsinline></video>
+        </div>
+<div class="teks">
+    <div>
+        <p><b>Sesi 1 Azizi Asadel</b></p>
+    </div>
+    <div class="teksbawah">
+        <p>Host has joined. We've let them know you're here. <br><span>Test Speaker and Microphone</span></p><div class="loader"></div>
+    </div>
+
+</div>
+    </div>
+    <div id="container2">
+        <img src="zooom.jpg" width="585px" alt="">
+    </div>
+    <script>
+        // Mengakses perangkat kamera pengguna
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                var videoElement = document.getElementById('video-element');
+                videoElement.srcObject = stream;
+            })
+            .catch(function(error) {
+                console.error('Error accessing camera:', error);
+            });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menunggu Host Bergabung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Menunggu Host Bergabung</h1>
+        <div class="loader"></div>
+    </div>
+</body>
+</html> -->
